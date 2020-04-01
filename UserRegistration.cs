@@ -25,6 +25,16 @@ namespace userRegistration
                 return "invalid";
         }
 
+        public string validateNumber(string number)
+        {
+            var expr = @"^([0-9]{2}[ ]{1}[0-9]{10})$";
+            var match = Regex.Match(number, expr, RegexOptions.None);
+            if (match.Success)
+                return "valid";
+            else
+                return "invalid";
+        }
+
         static void Main(string[] args)
         {
             UserRegistration userRes = new UserRegistration();
@@ -37,6 +47,10 @@ namespace userRegistration
 
             string email = UserInput.inputEmail(); // taking email form user
             Console.WriteLine($"Email {userRes.validateEmail(email)}"); // validating email
+
+            string number = UserInput.inputNumber(); // taking number from user
+            Console.WriteLine($"Number {userRes.validateNumber(number)}"); // validating number
+
 
         }
     }

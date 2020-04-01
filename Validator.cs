@@ -8,5 +8,6 @@ namespace userRegistration
     {
         string validateName(string firstName);
         string validateEmail(string email);
+        string validateNumber(string number);
     }
 }
