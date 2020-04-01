@@ -7,5 +7,6 @@ namespace userRegistration
     interface Validator
     {
         string validateName(string firstName);
+        string validateEmail(string email);
     }
 }

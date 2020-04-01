@@ -6,14 +6,19 @@ namespace userRegistration
 {
     class UserInput
     {
-        public static string[] inputName()
+        public static string[] inputName() // method to take name from user
         {
             string[] name = new string[2];
             Console.Write("Enter Name : ");
             var nameString = Console.ReadLine();
             name = nameString.Split(" ");
             return name;
-
+        }
+        
+        public static string inputEmail() // method to take email from user
+        {
+            Console.Write("Enter email : ");
+            return Console.ReadLine(); 
         }
     }
 }
