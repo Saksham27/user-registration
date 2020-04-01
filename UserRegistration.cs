@@ -5,44 +5,48 @@ namespace userRegistration
 {
     class UserRegistration : Validator
     {
-        public string validateName(string firstName)
+
+        public string checkMatch(string exp, string stringToMatch)
         {
-            var expr = @"^[A-Z]{1}[a-z]{2,}$";
-            var match = Regex.Match(firstName, expr, RegexOptions.None);
+            var match = Regex.Match(stringToMatch, exp, RegexOptions.None);
             if (match.Success)
                 return "valid";
             else
                 return "invalid";
+        }
+
+        public string validateName(string name)
+        {
+            var expr = @"^[A-Z]{1}[a-z]{2,}$";
+            return this.checkMatch(expr, name);
+            
         }
 
         public string validateEmail(string email)
         {
             var expr = @"^abc((\.[A-Z]+[a-z]*[0-9]*)|(\.[A-Z]*[a-z]+[0-9]*)|(\.[A-Z]*[a-z]*[0-9]+)?)?@bl\.co(\.[a-z]{2,})?$";
-            var match = Regex.Match(email, expr, RegexOptions.None);
-            if (match.Success)
-                return "valid";
-            else
-                return "invalid";
+            return this.checkMatch(expr, email);
         }
 
         public string validateNumber(string number)
         {
             var expr = @"^([0-9]{2}[ ]{1}[0-9]{10})$";
-            var match = Regex.Match(number, expr, RegexOptions.None);
-            if (match.Success)
-                return "valid";
-            else
-                return "invalid";
+            return this.checkMatch(expr, number);
+        }
+
+        public string validatePassword(string password)
+        {
+            var expr = @"^.{8,}$";
+            return this.checkMatch(expr, password);
         }
 
         static void Main(string[] args)
         {
             UserRegistration userRes = new UserRegistration();
 
-            string[] name = UserInput.inputName(); // taking name from user
-            string firstName = name[0]; // first name
+            string firstName = UserInput.inputFirstName(); // first name
             Console.WriteLine($"First name {userRes.validateName(firstName)}"); // validating first name
-            string lastName = name[1]; // last name
+            string lastName = UserInput.inputLastName(); // last name
             Console.WriteLine($"Last name {userRes.validateName(lastName)}"); // validating last name
 
             string email = UserInput.inputEmail(); // taking email form user
@@ -50,6 +54,10 @@ namespace userRegistration
 
             string number = UserInput.inputNumber(); // taking number from user
             Console.WriteLine($"Number {userRes.validateNumber(number)}"); // validating number
+
+            string password = UserInput.inputPassword();
+            Console.WriteLine($"Password {userRes.validatePassword(password)}"); // validating password
+
 
 
         }
