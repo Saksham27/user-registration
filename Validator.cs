@@ -6,7 +6,6 @@ namespace userRegistration
 {
     interface Validator
     {
-        void ValidateFirstName(string firstName);
-
+        string validateName(string firstName);
     }
 }
