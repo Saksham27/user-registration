@@ -6,31 +6,51 @@ namespace userRegistration
 {
     class UserInput
     {
-        public static string inputFirstName() // method to take first name from user
+        /// <summary>
+        /// method to take first name from user
+        /// </summary>
+        /// <returns></returns>
+        public static string inputFirstName() 
         {
             Console.Write("Enter First name : ");
             return Console.ReadLine();
         }
 
-        public static string inputLastName() // method to take last name from user
+        /// <summary>
+        /// method to take last name from user
+        /// </summary>
+        /// <returns></returns>
+        public static string inputLastName()
         {
             Console.Write("Enter Last name : ");
             return Console.ReadLine();
         }
 
-        public static string inputEmail() // method to take email from user
+        /// <summary>
+        /// method to take email from user
+        /// </summary>
+        /// <returns></returns>
+        public static string inputEmail()
         {
             Console.Write("Enter email : ");
             return Console.ReadLine(); 
         }
 
-        public static string inputNumber() // method to take number from user
+        /// <summary>
+        /// method to take number from user
+        /// </summary>
+        /// <returns></returns>
+        public static string inputNumber()
         {
             Console.Write("Enter number with country code : ");
             return Console.ReadLine();
         }
 
-        public static string inputPassword() // method to take password from user
+        /// <summary>
+        /// method to take password from user
+        /// </summary>
+        /// <returns></returns>
+        public static string inputPassword()
         {
             Console.Write("Enter password : ");
             return Console.ReadLine();
