@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace userRegistration
@@ -12,34 +11,34 @@ namespace userRegistration
         /// <param name="regexExpression"> regular expression </param>
         /// <param name="stringToCheck"> string to match with regular expression </param>
         /// <returns></returns>
-        string checkMatch(string regexExpression, string stringToCheck);
+        string CheckMatch(string regexExpression, string stringToCheck);
 
         /// <summary>
         /// method to validate name
         /// </summary>
         /// <param name="name"> the name string to be checked for validation </param>
         /// <returns></returns>
-        string validateName(string name);
+        string ValidateName(string name);
 
         /// <summary>
         /// method to validate email
         /// </summary>
         /// <param name="email"> the email string to be checked for validation </param>
         /// <returns></returns>
-        string validateEmail(string email);
+        string ValidateEmail(string email);
 
         /// <summary>
         /// method to validate number
         /// </summary>
         /// <param name="number"> the number to be checked for validation </param>
         /// <returns></returns>
-        string validateNumber(string number);
+        string ValidateNumber(string number);
 
         /// <summary>
         /// method to validate password
         /// </summary>
         /// <param name="password"> the password to be checked for validation </param>
         /// <returns></returns>
-        string validatePassword(string password);
+        string ValidatePassword(string password);
     }
 }

@@ -11,7 +11,7 @@ namespace userRegistration
         /// <param name="regexExpression"> regular expression </param>
         /// <param name="stringToMatch"> string to match with regular expression </param>
         /// <returns></returns>
-        public string checkMatch(string regexExpression, string stringToMatch)
+        public string CheckMatch(string regexExpression, string stringToMatch)
         {
             Match match = Regex.Match(stringToMatch, regexExpression, RegexOptions.None);
             if (match.Success)
@@ -25,10 +25,10 @@ namespace userRegistration
         /// </summary>
         /// <param name="name"> the name string to be checked for validation </param>
         /// <returns></returns>
-        public string validateName(string name)
+        public string ValidateName(string name)
         {
             string expression = @"^[A-Z]{1}[a-z]{2,}$";
-            return this.checkMatch(expression, name);
+            return this.CheckMatch(expression, name);
             
         }
 
@@ -37,10 +37,10 @@ namespace userRegistration
         /// </summary>
         /// <param name="email"> the email string to be checked for validation </param>
         /// <returns></returns>
-        public string validateEmail(string email)
+        public string ValidateEmail(string email)
         {
             string expression = @"^abc((\.[A-Z]+[a-z]*[0-9]*)|(\.[A-Z]*[a-z]+[0-9]*)|(\.[A-Z]*[a-z]*[0-9]+)?)?@bl\.co(\.[a-z]{2,})?$";
-            return this.checkMatch(expression, email);
+            return this.CheckMatch(expression, email);
         }
 
         /// <summary>
@@ -48,10 +48,10 @@ namespace userRegistration
         /// </summary>
         /// <param name="number"> the number to be checked for validation </param>
         /// <returns></returns>
-        public string validateNumber(string number)
+        public string ValidateNumber(string number)
         {
             string expression = @"^([0-9]{2}[ ]{1}[0-9]{10})$";
-            return this.checkMatch(expression, number);
+            return this.CheckMatch(expression, number);
         }
 
         /// <summary>
@@ -59,29 +59,40 @@ namespace userRegistration
         /// </summary>
         /// <param name="password"> the password to be checked for validation </param>
         /// <returns></returns>
-        public string validatePassword(string password)
+        public string ValidatePassword(string password)
         {
             string expression = @"^(?=.*[A-Z])(?=.*[0-9])(?=[^@#$%^&+=]*[@#$%^&+=][^@#$%^&+=]*$)(.{8,})$";
-            return this.checkMatch(expression, password);
+            return this.CheckMatch(expression, password);
         }
 
         static void Main(string[] args)
         {
             UserRegistration userRegistration = new UserRegistration();
 
-            string firstName = UserInput.inputFirstName();      // first name
-            Console.WriteLine($"First name {userRegistration.validateName(firstName)}");     // validating first name
-            string lastName = UserInput.inputLastName();        // last name
-            Console.WriteLine($"Last name {userRegistration.validateName(lastName)}");       // validating last name
+            // first name
+            string firstName = UserInput.InputFirstName();
+            // validating first name
+            Console.WriteLine($"First name {userRegistration.ValidateName(firstName)}");
 
-            string email = UserInput.inputEmail();      // taking email form user
-            Console.WriteLine($"Email {userRegistration.validateEmail(email)}");     // validating email
+            // last name
+            string lastName = UserInput.InputLastName();
+            // validating last name
+            Console.WriteLine($"Last name {userRegistration.ValidateName(lastName)}");
 
-            string number = UserInput.inputNumber();        // taking number from user
-            Console.WriteLine($"Number {userRegistration.validateNumber(number)}");      // validating number
+            // taking email form user
+            string email = UserInput.InputEmail();
+            // validating email
+            Console.WriteLine($"Email {userRegistration.ValidateEmail(email)}");
 
-            string password = UserInput.inputPassword();        // taking password from user
-            Console.WriteLine($"Password {userRegistration.validatePassword(password)}");    // validating password
+            // taking number from user
+            string number = UserInput.InputNumber();
+            // validating number
+            Console.WriteLine($"Number {userRegistration.ValidateNumber(number)}");
+
+            // taking password from user
+            string password = UserInput.InputPassword();
+            // validating password
+            Console.WriteLine($"Password {userRegistration.ValidatePassword(password)}");    
 
 
 
